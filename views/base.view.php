@@ -1,12 +1,14 @@
 <?php
-include __DIR__ . "/../header.php";
+include __DIR__ . "/../header.php"; 
 include_once __DIR__ . "/../src/init.php";
+?>
 
+<?php
 if (isset($_GET["name"]) && isset($zooInstance)) {
     foreach ($zooInstance->getAllAnimals() as $creature) {
         if (str_replace(" ", "", $creature->getName()) === $_GET["name"]) {
             $selectedAnimal = $creature;
-            break; 
+            break;
         }
     }
 } else {
