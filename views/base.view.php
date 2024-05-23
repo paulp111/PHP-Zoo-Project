@@ -1,12 +1,10 @@
 <?php
 include __DIR__ . "/../header.php"; 
 include_once __DIR__ . "/../src/init.php";
-?>
 
-<?php
 if (isset($_GET["name"]) && isset($zooInstance)) {
     foreach ($zooInstance->getAllAnimals() as $creature) {
-        if (str_replace(" ", "", $creature->getName()) === $_GET["name"]) {
+        if ($creature->getName() === urldecode($_GET["name"])) {
             $selectedAnimal = $creature;
             break;
         }
@@ -18,8 +16,8 @@ if (isset($_GET["name"]) && isset($zooInstance)) {
 
 <main>
     <?php if ($selectedAnimal): ?>
-        <h2><?= htmlspecialchars($selectedAnimal->getName()) ?></h2>
-        <p>Gender: <?= htmlspecialchars($selectedAnimal->getGender()) ?></p>
+        <h2><?= $selectedAnimal->getName() ?></h2>
+        <p>Gender: <?= $selectedAnimal->getGender() ?></p>
 
         <?php if ($selectedAnimal instanceof Cat): ?>
             <p>Danger Level: 
@@ -42,8 +40,6 @@ if (isset($_GET["name"]) && isset($zooInstance)) {
                 <progress value="<?= $selectedAnimal->getMaxWeight() ?>" max="<?= $selectedAnimal->getMaxWeight() ?>"></progress>
             </p>
         </div>
-    <?php else: ?>
-        <p>Animal not found.</p>
     <?php endif; ?>
 
     <a href="../index.php">&larr; Back to the Zoo</a>
