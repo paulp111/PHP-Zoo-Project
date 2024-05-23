@@ -1,5 +1,5 @@
 <?php
-require_once "Animal.php";
+require_once "Base.php";
 
 class Rhino extends Creature {
     public function __construct(

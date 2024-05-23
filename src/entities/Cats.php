@@ -1,6 +1,6 @@
 <?php
 
-require_once "Animal.php";
+require_once "Base.php";
 
 abstract class Cat extends Creature {
     private int $dangerLevel;

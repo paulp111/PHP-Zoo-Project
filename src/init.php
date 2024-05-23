@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . "/entities/Animal.php";
+require_once __DIR__ . "/entities/Base.php";
 require_once __DIR__ . "/entities/Tiger.php";
 require_once __DIR__ . "/entities/Lion.php";
 require_once __DIR__ . "/entities/Rhino.php";
